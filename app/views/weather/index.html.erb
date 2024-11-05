@@ -1,0 +1,64 @@
+<h1 class="text-center my-4">Weather Forecast</h1>
+
+<div class="container">
+  <%= form_with url: weather_index_path, method: :get, local: true, class: "mb-4" do |form| %>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <%= form.label :address, "Enter Street Address" %>
+        <%= form.text_field :address, class: "form-control" %>
+      </div>
+      <div class="form-group col-md-6">
+        <%= form.label :zip_code, "Enter Zip Code" %>
+        <%= form.text_field :zip_code, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <%= form.label :state, "Enter State" %>
+        <%= form.text_field :state, class: "form-control" %>
+      </div>
+      <div class="form-group col-md-6">
+        <%= form.label :country, "Enter Country" %>
+        <%= form.text_field :country, class: "form-control" %>
+      </div>
+    </div>
+    <%= form.submit "Get Forecast", class: "btn btn-primary btn-block" %>
+  <% end %>
+
+  <% if @forecast_data %>
+    <div class="card mb-4">
+      <div class="card-body">
+        <h2 class="card-title">Current Weather</h2>
+        <p><strong>Current Temperature:</strong> <%= @forecast_data[:current_temp] %>°F</p>
+        <p><strong>High:</strong> <%= @forecast_data[:high_temp] %>°F</p>
+        <p><strong>Low:</strong> <%= @forecast_data[:low_temp] %>°F</p>
+        
+        <% if @from_cache %>
+          <p><em>Data retrieved from cache</em></p>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title">3-Day Extended Forecast</h2>
+        <% if @forecast_data[:extended_forecast] %>
+          <% @forecast_data[:extended_forecast].each do |day| %>
+            <div class="forecast-day mb-3">
+              <p><strong>Date:</strong> <%= day[:date] %></p>
+              <p><strong>High:</strong> <%= day[:high_temp] %>°F</p>
+              <p><strong>Low:</strong> <%= day[:low_temp] %>°F</p>
+              <p><strong>Condition:</strong> <%= day[:condition] %></p>
+            </div>
+          <% end %>
+        <% else %>
+          <p>No extended forecast data available.</p>
+        <% end %>
+      </div>
+    </div>
+  <% elsif flash[:error] %>
+    <div class="alert alert-danger mt-4">
+      <p><em><%= flash[:error] %></em></p>
+    </div>
+  <% end %>
+</div>
