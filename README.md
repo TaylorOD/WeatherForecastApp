@@ -1,6 +1,6 @@
 # WeatherForecastApp
 
-This Ruby on Rails application retrieves weather forecast data based on a provided address or ZIP code, displaying the current temperature, high/low temperatures, and an extended forecast. It includes caching for efficiency and demonstrates production-level coding practices .
+This Ruby on Rails application retrieves weather forecast data based on a provided address or ZIP code, displaying the current temperature, high/low temperatures, and an extended forecast. It includes caching for efficiency and demonstrates production-level coding practices.
 
 ## Table of Contents
 
