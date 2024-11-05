@@ -1,6 +1,6 @@
 # WeatherForecastApp
 
-This Ruby on Rails application retrieves weather forecast data based on a provided address or ZIP code, displaying the current temperature, high/low temperatures, and an extended forecast. It includes caching for efficiency and demonstrates production-level coding practices.
+This practice Ruby on Rails application retrieves weather forecast data based on a provided address or ZIP code, displaying the current temperature, high/low temperatures, and an extended forecast. It includes caching for efficiency.
 
 ## Table of Contents
 
@@ -20,7 +20,7 @@ Follow these steps to get the app running on your local machine.
 Start by cloning the repository to your local machine:
 
 ```bash
-git clone https://github.com/taylor_od/WeatherForecastApp.git
+git clone https://github.com/TaylorOD/WeatherForecastApp.git
 cd WeatherForecastApp
 ```
 
@@ -107,7 +107,7 @@ The weather data is cached for 30 minutes by ZIP code to optimize performance an
 
 ## API Details
 
-The app fetches weather data using a third-party weather API (e.g., OpenWeatherMap or WeatherAPI). You need an API key from the service you choose. To obtain the API key:
+The app fetches weather data using a third-party weather API (this app was built for WeatherAPI). You need an API key from the service you choose. To obtain the API key:
 
 1. Sign up at the weather API provider’s website.
 2. Add the API key to your `.env` file as specified in the [Installation](#installation) section.
