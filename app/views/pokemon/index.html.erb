@@ -1,0 +1,29 @@
+<h1 class="text-center my-4">Pokemon</h1>
+
+<div class="container">
+  <%= form_with url: pokemon_index_path, method: :get, local: true, class: "mb-4" do |form| %>
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <%= form.label :pokemon, "Enter Pokemon Name" %>
+        <%= form.text_field :pokemon, class: "form-control" %>
+      </div>
+    </div>
+    <%= form.submit "Get Pokemon Data", class: "btn btn-primary btn-block" %>
+  <% end %>
+
+  <% if @pokemon_data %>
+    <div class="card mb-4">
+      <div class="card-body">
+        <h2 class="card-title">Pokemon Info</h2>
+        <p><strong>Name:</strong> <%= @pokemon_data[:name].capitalize %></p>
+        <p><strong>height:</strong> <%= @pokemon_data[:height] %> Inches</p>
+        <p><strong>weight:</strong> <%= @pokemon_data[:weight] %> Pounds</p>
+        <p><strong>abilities:</strong> <%= @pokemon_data[:abilities] %></p>
+      </div>
+    </div>
+  <% elsif flash[:error] %>
+    <div class="alert alert-danger mt-4">
+      <p><em><%= flash[:error] %></em></p>
+    </div>
+  <% end %>
+</div>

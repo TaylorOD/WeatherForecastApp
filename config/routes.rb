@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :weather, only: [:index]
+  resources :pokemon, only: [:index]
 end
