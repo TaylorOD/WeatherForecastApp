@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :weather, only: [:index]
   resources :pokemon, only: [:index]
+  resources :dad_joke, only: [:index]
 end

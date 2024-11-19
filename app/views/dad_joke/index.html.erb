@@ -1,0 +1,15 @@
+<h1 class="text-center my-4">Your Dad Joke</h1>
+
+<div class="container">
+  <% if @joke_data %>
+    <div class="card mb-4">
+    <div class="card-body">
+    <p class="text-center"> <%= @joke_data %> </p>
+      </div>
+    </div>
+  <% elsif flash[:error] %>
+    <div class="alert alert-danger mt-4">
+      <p><em><%= flash[:error] %></em></p>
+    </div>
+  <% end %>
+</div>
